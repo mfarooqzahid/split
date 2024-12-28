@@ -34,17 +34,42 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  flutter_bloc: ^8.1.6
+
+  # Firebase
   firebase_core: ^3.8.0
   firebase_auth: ^5.3.3
   cloud_firestore: ^5.5.0
   firebase_messaging: ^15.1.5
+  dart_firebase_admin: ^0.4.0
+
+  # UUID for unique identifiers
+  uuid: ^4.5.1
+
+  # Bloc
+  flutter_bloc: ^8.1.6
+
+  #Functional Programming
   dartz: ^0.10.1
-  google_sign_in: ^6.2.2
+
+  # Dependency Management
   get_it: ^8.0.2
+
+  # Routing
+  go_router: ^14.3.0
+
+  # For managing equalities
+  equatable: ^2.0.5
+
+  # Animations
   flutter_animate: ^4.5.1
-  hydrated_bloc: ^9.1.5
+
+  # Date Time Formating
   intl: ^0.19.0
+
+  # For beautiful toasts
+  fluttertoast: ^8.2.8
+
+  
   
 
 dev_dependencies:

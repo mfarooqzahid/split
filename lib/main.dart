@@ -20,6 +20,8 @@ class SplitApp extends StatefulWidget {
 class _SplitAppState extends State<SplitApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const MaterialApp(
+      home: Scaffold(),
+    );
   }
 }

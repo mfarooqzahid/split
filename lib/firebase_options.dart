@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAshfaOjPiJY_Izbq4iFF8RYkxYMGZnnt0',
-    appId: '1:294404903821:android:b2b91312b6d733099b23c4',
+    appId: '1:294404903821:android:95803fd7d38df4aa9b23c4',
     messagingSenderId: '294404903821',
     projectId: 'asplitmoney',
     storageBucket: 'asplitmoney.firebasestorage.app',
