@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:294404903821:android:95803fd7d38df4aa9b23c4",
         "android_client_info": {
-          "package_name": "com.split"
+          "package_name": "com.farooq.split"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "294404903821-ijk8qraflbr8k3vtt195mpno50cu4qhr.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.split"
+                "bundle_id": "com.farooq.split"
               }
             }
           ]
