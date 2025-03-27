@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:split/core/widgets/default_styled_container.dart';
 
 class RecentBillCard extends StatelessWidget {
   final String title;
@@ -23,12 +24,7 @@ class RecentBillCard extends StatelessWidget {
     final theme = Theme.of(context);
     final localization = AppLocalizations.of(context)!;
 
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(12),
-      ),
+    return DefaultStyledContainer(
       child: Column(
         children: [
           Row(

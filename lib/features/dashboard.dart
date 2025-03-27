@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:go_router/go_router.dart';
-import 'package:split/core/utils/set_statusbar_color.dart';
 import 'package:split/features/home/presentation/screen/home.dart';
 import 'package:split/features/profile/presentation/screen/profile.dart';
 
@@ -76,7 +75,7 @@ class _DashboardScreenState extends State<DashboardScreen>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    setStatusBarColor(context);
+    //setStatusBarColor(context);
     return Scaffold(
       key: _scaffoldKey,
       drawer: const HomeDrawer(),
@@ -107,22 +106,22 @@ class _DashboardScreenState extends State<DashboardScreen>
         ),
       ),
       body: SafeArea(
-          child: Stack(
-        children: [
-          Positioned.fill(
-            child: ValueListenableBuilder(
-              valueListenable: currentIndex,
-              builder: (context, index, child) {
-                return _screen[index];
-              },
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: ValueListenableBuilder(
+                valueListenable: currentIndex,
+                builder: (context, index, child) {
+                  return _screen[index];
+                },
+              ),
             ),
-          ),
-          Positioned(
-            bottom: 20,
-            right: 0,
-            left: 0,
-            child: Center(
-              child: AnimatedBuilder(
+            Positioned(
+              bottom: 20,
+              right: 0,
+              left: 0,
+              child: Center(
+                child: AnimatedBuilder(
                   animation: _animationController,
                   builder: (context, child) {
                     return Transform.translate(
@@ -184,11 +183,13 @@ class _DashboardScreenState extends State<DashboardScreen>
                         ),
                       ),
                     );
-                  }),
+                  },
+                ),
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }

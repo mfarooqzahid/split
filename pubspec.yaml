@@ -68,6 +68,7 @@ dependencies:
   fluttertoast: ^8.2.8
   flutter_dotenv: ^5.2.1
   flutter_native_splash: ^2.4.4
+  fuzzy: ^0.5.1
 
 # dart run flutter_native_splash:create
 flutter_native_splash:

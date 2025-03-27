@@ -10,6 +10,6 @@ class HomeDrawer extends StatefulWidget {
 class _HomeDrawerState extends State<HomeDrawer> {
   @override
   Widget build(BuildContext context) {
-    return Drawer();
+    return const Drawer();
   }
 }

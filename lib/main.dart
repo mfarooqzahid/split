@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:split/core/constants/app_theme.dart';
+import 'package:split/core/utils/set_statusbar_color.dart';
 import 'package:split/injection.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:split/routes/app_router.dart';
@@ -25,6 +26,8 @@ class SplitApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    setStatusBarColor(context);
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       supportedLocales: const [
@@ -39,7 +42,7 @@ class SplitApp extends StatelessWidget {
       routerConfig: goRouter,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:split/core/widgets/default_styled_container.dart';
 import 'package:split/features/home/presentation/widget/recent_bill_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    // setStatusBarColor(context);
+    // //setStatusBarColor(context);
     return Scaffold(
       // appbar
 
@@ -33,14 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               spacing: 8,
               children: [
                 // wellcome card
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surface,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                DefaultStyledContainer(
                   child: Column(
                     spacing: 4,
                     children: [

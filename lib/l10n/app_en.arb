@@ -8,5 +8,15 @@
   "sharing":"Sharing",
   "persons": "Persons",
   "amount": "Amount",
-  "logExpense": "Log Expense"
+  "billName": "Bill's Name",
+  "egEggs": "e.g. Eggs",
+  "category": "Category",
+  "whosJoiningTheSplit": "Who's Joining the Split?",
+  "whosPaying": "Who's Paying?",
+  "search": "Search",
+  "billDetails": "Bill Details",
+  "billEdit": "Bill Edit",
+  "billSummary": "Bill Summary",
+  "totalbill": "Total Bill",
+  "confirm": "Confirm"
 }

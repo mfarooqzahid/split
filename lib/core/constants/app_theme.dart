@@ -21,6 +21,7 @@ class AppTheme {
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(
         backgroundColor: kWhiteColor,
+        foregroundColor: kDarkTextColor,
       ),
     ),
     textTheme: const TextTheme(
@@ -32,6 +33,31 @@ class AppTheme {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      isDense: true,
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: kSecondaryTextColor,
+          width: 0.5,
+        ),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: kSecondaryTextColor,
+          width: 0.5,
+        ),
+      ),
+      hintStyle: const TextStyle(
+        color: kSecondaryTextColor,
+        fontStyle: FontStyle.italic,
+        fontSize: 14,
+      ),
+    ),
+    listTileTheme: ListTileThemeData(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 4),
     ),
   );
   static ThemeData darkTheme = ThemeData(
@@ -47,24 +73,50 @@ class AppTheme {
         onSecondary: kWhiteColor,
         onSurface: kWhiteColor,
       ),
-      cardColor: kDarkTextColor,
       dividerTheme: DividerThemeData(
         color: kWhiteColor.withAlpha(30),
       ),
       iconButtonTheme: IconButtonThemeData(
         style: IconButton.styleFrom(
           backgroundColor: kDarkTextColor,
+          foregroundColor: kWhiteColor,
         ),
       ),
       textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: kWhiteColor), // Main dark text
-        bodyMedium: TextStyle(color: Colors.grey), // Secondary/grey text
-        titleLarge: TextStyle(color: kPrimaryColor), // Highlighted text
+        bodyLarge: TextStyle(color: kWhiteColor),
+        bodyMedium: TextStyle(color: kSecondaryTextColor),
+        titleLarge: TextStyle(color: kPrimaryColor),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        isDense: true,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: kSecondaryTextColor,
+            width: 0.5,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: Colors.white30,
+            width: 0.5,
+          ),
+        ),
+        hintStyle: const TextStyle(
+          color: kSecondaryTextColor,
+          fontStyle: FontStyle.italic,
+          fontSize: 14,
+        ),
+      ),
+      listTileTheme: ListTileThemeData(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+        enableFeedback: false,
       ));
 }
 

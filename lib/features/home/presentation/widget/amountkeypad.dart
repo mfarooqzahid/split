@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:split/core/utils/logger.dart';
 
 class Amountkeypad extends StatefulWidget {
   const Amountkeypad({super.key});
@@ -23,9 +22,11 @@ class _AmountkeypadState extends State<Amountkeypad> {
         enteredAmount.value =
             enteredAmount.value.substring(0, enteredAmount.value.length - 1);
       }
-    } else if (value == "confirm" && enteredAmount.value.isNotEmpty) {
-      log(enteredAmount.value);
-      
+    } else if (value == "confirm") {
+      Logger.log(enteredAmount.value);
+      if (enteredAmount.value.isNotEmpty) {
+        context.goNamed('billdetails', extra: enteredAmount.value);
+      }
     } else {
       int newAmount = int.tryParse(enteredAmount.value + value) ?? 0;
       if (!(enteredAmount.value.isEmpty && value == "0") &&
@@ -45,7 +46,7 @@ class _AmountkeypadState extends State<Amountkeypad> {
           centerTitle: true,
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
-            statusBarBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
           ),
           backgroundColor: Colors.transparent,
           leading: IconButton(
@@ -62,7 +63,8 @@ class _AmountkeypadState extends State<Amountkeypad> {
             localization.amount,
             style: TextStyle(
               color: theme.colorScheme.onPrimary,
-              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
