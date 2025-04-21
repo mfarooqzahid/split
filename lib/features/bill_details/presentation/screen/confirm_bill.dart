@@ -55,6 +55,7 @@ class _ConfirmBillScreenState extends State<ConfirmBillScreen> {
     return Scaffold(
       appBar: AppBarWidget(
         title: localization.billSummary,
+        
         actions: [
           IconButton.filled(
             onPressed: () {
@@ -74,9 +75,10 @@ class _ConfirmBillScreenState extends State<ConfirmBillScreen> {
               minWidth: double.infinity,
               minHeight: 500,
             ),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.surface,
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(12)),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,

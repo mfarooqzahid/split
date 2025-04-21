@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void setStatusBarColor(BuildContext context) {
-  final brightness = MediaQuery.of(context).platformBrightness;
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+void setStatusBarColor(BuildContext context, ThemeMode themeMode) {
+  // final brightness = MediaQuery.of(context).platformBrightness;
+  SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
-    statusBarIconBrightness: brightness == Brightness.dark ? Brightness.light : Brightness.dark,
+    statusBarIconBrightness: themeMode == ThemeMode.dark ? Brightness.light : Brightness.dark,
   ));
 }
 // void setStatusBarColor(Color? color, [Brightness brightness = Brightness.dark]) {

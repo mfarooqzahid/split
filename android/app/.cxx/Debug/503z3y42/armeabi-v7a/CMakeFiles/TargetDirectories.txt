@@ -1,0 +1,2 @@
+D:/split-project/split/android/app/.cxx/Debug/503z3y42/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/split-project/split/android/app/.cxx/Debug/503z3y42/armeabi-v7a/CMakeFiles/rebuild_cache.dir

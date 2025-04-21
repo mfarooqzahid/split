@@ -40,6 +40,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               child: SizedBox(
                   child: Text(
                 title ?? "",
+                textAlign: TextAlign.center,
                 style: theme.textTheme.bodyLarge!.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,

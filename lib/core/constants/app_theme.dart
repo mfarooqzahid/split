@@ -56,68 +56,82 @@ class AppTheme {
         fontSize: 14,
       ),
     ),
+    // bottomSheetTheme: BottomSheetThemeData(
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(12),
+    //   ),
+    // ),
+    bottomSheetTheme: const BottomSheetThemeData(showDragHandle: true),
+
     listTileTheme: ListTileThemeData(
       contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+      enableFeedback: false,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      tileColor: Colors.transparent,
     ),
   );
   static ThemeData darkTheme = ThemeData(
-      fontFamily: "Inter",
-      brightness: Brightness.light,
-      primaryColor: kPrimaryColor,
-      scaffoldBackgroundColor: Colors.grey.shade900,
-      colorScheme: const ColorScheme.light(
-        primary: kPrimaryColor,
-        secondary: kErrorColor,
-        surface: kDarkTextColor,
-        onPrimary: kWhiteColor,
-        onSecondary: kWhiteColor,
-        onSurface: kWhiteColor,
+    fontFamily: "Inter",
+    brightness: Brightness.light,
+    primaryColor: kPrimaryColor,
+    scaffoldBackgroundColor: Colors.grey.shade900,
+    colorScheme: const ColorScheme.light(
+      primary: kPrimaryColor,
+      secondary: kErrorColor,
+      surface: kDarkTextColor,
+      onPrimary: kWhiteColor,
+      onSecondary: kWhiteColor,
+      onSurface: kWhiteColor,
+    ),
+    dividerTheme: DividerThemeData(
+      color: kWhiteColor.withAlpha(30),
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(
+        backgroundColor: kDarkTextColor,
+        foregroundColor: kWhiteColor,
       ),
-      dividerTheme: DividerThemeData(
-        color: kWhiteColor.withAlpha(30),
+    ),
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(color: kWhiteColor),
+      bodyMedium: TextStyle(color: kSecondaryTextColor),
+      titleLarge: TextStyle(color: kPrimaryColor),
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30),
       ),
-      iconButtonTheme: IconButtonThemeData(
-        style: IconButton.styleFrom(
-          backgroundColor: kDarkTextColor,
-          foregroundColor: kWhiteColor,
-        ),
-      ),
-      textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: kWhiteColor),
-        bodyMedium: TextStyle(color: kSecondaryTextColor),
-        titleLarge: TextStyle(color: kPrimaryColor),
-      ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        isDense: true,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(
-            color: kSecondaryTextColor,
-            width: 0.5,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(
-            color: Colors.white30,
-            width: 0.5,
-          ),
-        ),
-        hintStyle: const TextStyle(
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      isDense: true,
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
           color: kSecondaryTextColor,
-          fontStyle: FontStyle.italic,
-          fontSize: 14,
+          width: 0.5,
         ),
       ),
-      listTileTheme: ListTileThemeData(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 4),
-        enableFeedback: false,
-      ));
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: Colors.white30,
+          width: 0.5,
+        ),
+      ),
+      hintStyle: const TextStyle(
+        color: kSecondaryTextColor,
+        fontStyle: FontStyle.italic,
+        fontSize: 14,
+      ),
+    ),
+    listTileTheme: ListTileThemeData(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+      enableFeedback: false,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      tileColor: Colors.transparent,
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(showDragHandle: true),
+  );
 }
 
 const Color kPrimaryColor = Color(0xFF465EFD);
@@ -126,15 +140,3 @@ const Color kErrorColor = Color(0xFFF11001);
 const Color kWhiteColor = Color(0xFFFFFFFF);
 const Color kDarkTextColor = Color(0xFF1C1C1C);
 const Color kSecondaryTextColor = Color(0xFF848484);
-
-
-
-
-
-// colors
-// 0xFFFFFFFF for backgrounds for cards, on the main screen
-// 0xFFF6F6F9 for scaffold background color
-// 0xFF465EFD || 0xFF2B9D8F primary colors for buttons, highlited text
-// 0xFF1C1C1C for dark text
-// 0xFF848484 for light text
-// ocFFF11001 for warning 

@@ -18,5 +18,14 @@
   "billEdit": "Bill Edit",
   "billSummary": "Bill Summary",
   "totalbill": "Total Bill",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "theme": "Theme",
+  "language":"Language",
+  "currentRoom":"Current Room",
+  "changePassword":"Change Password",
+  "logOut":"Log Out",
+  "changeLanguage": "Change Language",
+  "save": "Save",
+  "update": "Update",
+  "deleteAccount": "Delete Account"
 }
