@@ -50,6 +50,27 @@ class AppTheme {
           width: 0.5,
         ),
       ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        // borderSide: const BorderSide(
+        //   color: Colors.white30,
+        //   width: 0.5,
+        // ),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: kErrorColor,
+          width: 0.5,
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: kErrorColor,
+          width: 0.5,
+        ),
+      ),
       hintStyle: const TextStyle(
         color: kSecondaryTextColor,
         fontStyle: FontStyle.italic,
@@ -115,6 +136,27 @@ class AppTheme {
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(
           color: Colors.white30,
+          width: 0.5,
+        ),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        // borderSide: const BorderSide(
+        //   color: Colors.white30,
+        //   width: 0.5,
+        // ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: kErrorColor,
+          width: 0.5,
+        ),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: const BorderSide(
+          color: kErrorColor,
           width: 0.5,
         ),
       ),

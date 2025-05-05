@@ -27,5 +27,11 @@
   "changeLanguage": "Change Language",
   "save": "Save",
   "update": "Update",
-  "deleteAccount": "Delete Account"
+  "deleteAccount": "Delete Account",
+  "welcomeToSplit": "Welcome to Split",
+  "pleaseEnterYourEmail": "Please enter your email",
+  "sendOtp": "Send OTP",
+  "pleaseEnterCorrectEmail": "Please enter correct Email",
+  "pleaseEnterAnEmail":"Please enter an Email",
+  "verifyOtp":"Verify OTP"
 }

@@ -1,0 +1,67 @@
+import 'dart:convert';
+
+class UserModel {
+  final String id;
+  final String email;
+  final String name;
+  final String profileUrl;
+  final DateTime createAt;
+
+  const UserModel({
+    required this.id,
+    required this.email,
+    required this.name,
+    required this.profileUrl,
+    required this.createAt,
+  });
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'email': email,
+      'name': name,
+      'profileUrl': profileUrl,
+      'createAt': createAt.millisecondsSinceEpoch,
+    };
+  }
+
+  factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+      id: map['id'] as String,
+      email: map['email'] as String,
+      name: map['name'] as String,
+      profileUrl: map['profileUrl'] as String,
+      createAt: DateTime.fromMillisecondsSinceEpoch(map['createAt'] as int),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  bool operator ==(covariant UserModel other) {
+    if (identical(this, other)) return true;
+  
+    return 
+      other.id == id &&
+      other.email == email &&
+      other.name == name &&
+      other.profileUrl == profileUrl &&
+      other.createAt == createAt;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+      email.hashCode ^
+      name.hashCode ^
+      profileUrl.hashCode ^
+      createAt.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'UserModel(id: $id, email: $email, name: $name, profileUrl: $profileUrl, createAt: $createAt)';
+  }
+}

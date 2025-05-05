@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import 'package:split/features/home/presentation/screen/home.dart';
-import 'package:split/features/profile/presentation/screen/profile.dart';
+import 'package:split/features/home/screen/home.dart';
+import 'package:split/features/profile/screen/profile.dart';
 
-import 'home/presentation/widget/drawer.dart';
+import 'home/widget/drawer.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -116,15 +116,15 @@ class _DashboardScreenState extends State<DashboardScreen>
           ),
         ),
         body: GestureDetector(
-          onVerticalDragEnd: (details) {
-            if (details.primaryVelocity! < 0) {
-              _animationController.forward();
-            }
+          // onVerticalDragEnd: (details) {
+          //   if (details.primaryVelocity! < 0) {
+          //     _animationController.forward();
+          //   }
 
-            if (details.primaryVelocity! > 0) {
-              _animationController.reverse();
-            }
-          },
+          //   if (details.primaryVelocity! > 0) {
+          //     _animationController.reverse();
+          //   }
+          // },
           child: SafeArea(
             child: Stack(
               children: [

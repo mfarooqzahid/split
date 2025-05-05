@@ -1,13 +1,12 @@
 import 'package:go_router/go_router.dart';
 import 'package:go_transitions/go_transitions.dart';
-import 'package:split/features/auth/presentation/screen/signin.dart';
-import 'package:split/features/auth/presentation/screen/verify_otp.dart';
+import 'package:split/features/auth/screen/signin.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '/features/bill_details/data/models/bill_details_model.dart';
-import '/features/bill_details/presentation/screen/bill_details.dart';
-import '/features/bill_details/presentation/screen/confirm_bill.dart';
+import '/features/bill_details/models/bill_details_model.dart';
+import '/features/bill_details/screen/bill_details.dart';
+import '/features/bill_details/screen/confirm_bill.dart';
 import '/features/dashboard.dart';
-import '/features/home/presentation/widget/amountkeypad.dart';
+import '/features/home/widget/amountkeypad.dart';
 
 final GoRouter goRouter = GoRouter(
   initialLocation: "/dashboard",
@@ -28,12 +27,12 @@ final GoRouter goRouter = GoRouter(
     //   builder: (_, __) => const SignupBottomSheet(),
     //   pageBuilder: GoTransitions.fade.call,
     // ),
-    GoRoute(
-      path: "/verifyotp",
-      name: "verifyotp",
-      builder: (_, __) => const VerifyOtp(),
-      pageBuilder: GoTransitions.fade.call,
-    ),
+    // GoRoute(
+    //   path: "/verifyotp",
+    //   name: "verifyotp",
+    //   builder: (_, __) => const VerifyOtp(),
+    //   pageBuilder: GoTransitions.fade.call,
+    // ),
     GoRoute(
       path: "/dashboard",
       name: "dashboard",

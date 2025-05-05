@@ -25,8 +25,13 @@
     "changePassword": "Cambiar contraseña",
     "logOut": "Cerrar sesión",
     "changeLanguage": "Cambiar idioma",
-     "save": "Guardar",
-     "update": "Actualizar",
-     "deleteAccount": "Eliminar cuenta"
-  }
-  
+    "save": "Guardar",
+    "update": "Actualizar",
+    "deleteAccount": "Eliminar cuenta",
+    "welcomeToSplit": "Bienvenido a Split",
+    "pleaseEnterYourEmail": "Por favor, introduce tu correo electrónico",
+    "sendOtp": "Enviar OTP",
+    "pleaseEnterCorrectEmail": "Por favor, introduce un correo electrónico válido",
+    "pleaseEnterAnEmail": "Por favor, introduce un correo electrónico",
+    "verifyOtp": "Verificar OTP"
+}

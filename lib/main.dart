@@ -6,8 +6,8 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:split/core/constants/app_theme.dart';
 import 'package:split/core/utils/set_statusbar_color.dart';
-import 'package:split/features/profile/presentation/widgets/language/language_cubit.dart';
-import 'package:split/features/profile/presentation/widgets/theme/theme_cubit.dart';
+import 'package:split/features/profile/widgets/language/language_cubit.dart';
+import 'package:split/features/profile/widgets/theme/theme_cubit.dart';
 import 'package:split/injection.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:split/routes/app_router.dart';
@@ -24,12 +24,12 @@ void main() async {
 
   await dotenv.load();
 
-  await Supabase.initialize(
+  final Supabase supabase =  await Supabase.initialize(
     url: dotenv.env['SUPABSE_URL'].toString(),
     anonKey: dotenv.env['ANON_KEY'].toString(),
   );
 
-  registerDependencies();
+  registerDependencies(supabaseClient: supabase.client);
 
   runApp(const SplitApp());
 
