@@ -26,6 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   _onVerifyOTPEvent(VerifyOTPEvent event, Emitter emit) async {
     emit(AuthLoading());
+
     final result = await authRepo.verifyOTP(
       email: event.email,
       token: event.otp,
@@ -33,7 +34,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     result.fold(
       (failure) => emit(AuthError(failure.message)),
-      (authResponse) {},
+      (authResponse) {
+        emit(AuthSuccess());
+      },
     );
   }
 }

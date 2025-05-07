@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:split/core/constants/app_theme.dart';
 import 'package:split/core/widgets/default_styled_container.dart';
 import 'package:split/features/profile/widgets/language/language_tile.dart';
+import 'package:split/features/profile/widgets/logout/logout_tile.dart';
 import 'package:split/features/profile/widgets/theme/theme_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -86,13 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //   ),
                       // ),
                       // const Divider(),
-                      ListTile(
-                        minVerticalPadding: 0,
-                        title: Text(localization.logOut),
-                        trailing: const Icon(
-                          CupertinoIcons.power,
-                        ),
-                      ),
+                      const LogoutTile(),
                       const Divider(),
                       ListTile(
                         minVerticalPadding: 0,

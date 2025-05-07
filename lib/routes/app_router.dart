@@ -21,18 +21,6 @@ final GoRouter goRouter = GoRouter(
       builder: (_, __) => const SigninScreen(),
       pageBuilder: GoTransitions.fade.call,
     ),
-    // GoRoute(
-    //   path: "/signup",
-    //   name: "signup",
-    //   builder: (_, __) => const SignupBottomSheet(),
-    //   pageBuilder: GoTransitions.fade.call,
-    // ),
-    // GoRoute(
-    //   path: "/verifyotp",
-    //   name: "verifyotp",
-    //   builder: (_, __) => const VerifyOtp(),
-    //   pageBuilder: GoTransitions.fade.call,
-    // ),
     GoRoute(
       path: "/dashboard",
       name: "dashboard",

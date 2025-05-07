@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:split/core/utils/flutter_toast.dart';
 import 'package:split/core/utils/logger.dart';
 import 'package:split/features/auth/bloc/auth_bloc.dart';
 
@@ -29,13 +30,18 @@ class _VerifyOtpBottomSheetState extends State<VerifyOtpBottomSheet> {
       child: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
-            // TODO: handle auth success state
+            // incase of successfull authentication
+            // navigate to dashboard screen
+            context.pop();
             Logger.log("OTP verified");
+            context.goNamed('dashboard');
           }
 
           if (state is AuthError) {
-            // TODO: handle auth error state
+            // handling the state incase of an error
+            // show error toast
             Logger.log(state.message);
+            showErrorToast(state.message);
           }
         },
         builder: (context, state) {
@@ -50,7 +56,7 @@ class _VerifyOtpBottomSheetState extends State<VerifyOtpBottomSheet> {
                 padding: const EdgeInsets.all(12),
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: theme.colorScheme.surface,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
