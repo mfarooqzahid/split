@@ -1,0 +1,2 @@
+/home/farooq/development/split/android/app/.cxx/Debug/1c2ywu3a/x86/CMakeFiles/edit_cache.dir
+/home/farooq/development/split/android/app/.cxx/Debug/1c2ywu3a/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "294404903821",
+    "project_id": "asplitmoney",
+    "storage_bucket": "asplitmoney.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294404903821:android:95803fd7d38df4aa9b23c4",
+        "android_client_info": {
+          "package_name": "com.farooq.split"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294404903821-sm46a7igvd3tj9b4fmj0cu3qs25jb905.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAshfaOjPiJY_Izbq4iFF8RYkxYMGZnnt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294404903821-sm46a7igvd3tj9b4fmj0cu3qs25jb905.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "294404903821-ijk8qraflbr8k3vtt195mpno50cu4qhr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.farooq.split"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
