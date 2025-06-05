@@ -35,8 +35,8 @@ class _DashboardScreenState extends State<DashboardScreen>
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
     _screen = [
-      HomeScreen(scrollController: _scrollController),
-      ProfileScreen(scrollController: _scrollController),
+      const HomeScreen(),
+      const ProfileScreen(),
     ];
     _animationController = AnimationController(
       vsync: this,

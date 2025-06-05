@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:split/core/utils/logger.dart';
 import 'package:split/features/auth/repository/auth_repo.dart';
 
 part 'auth_event.dart';
@@ -33,7 +34,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     result.fold(
       (failure) => emit(AuthError(failure.message)),
-      (authResponse) {},
+      (authResponse) {
+        Logger.log(authResponse.toString());
+        emit(OtpVerified(authResponse.user!.id));
+      },
     );
   }
 }

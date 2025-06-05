@@ -1,12 +1,12 @@
 
-class UserModel {
+class UserProfile {
   final String id;
   final String email;
   final String name;
   final String profileUrl;
   final DateTime createAt;
 
-  const UserModel({
+  const UserProfile({
     required this.id,
     required this.email,
     required this.name,
@@ -24,8 +24,8 @@ class UserModel {
     };
   }
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
+  factory UserProfile.fromMap(Map<String, dynamic> map) {
+    return UserProfile(
       id: map['id'] as String,
       email: map['email'] as String,
       name: map['name'] as String,
@@ -35,7 +35,7 @@ class UserModel {
   }
 
   @override
-  bool operator ==(covariant UserModel other) {
+  bool operator ==(covariant UserProfile other) {
     if (identical(this, other)) return true;
   
     return 

@@ -6,3 +6,12 @@ sealed class ProfileEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final  class FetchProfile extends ProfileEvent {
+  final String userId;
+
+  const FetchProfile(this.userId);
+
+  @override
+  List<Object> get props => [userId];
+}

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:split/features/profile/widgets/language/language_cubit.dart';
 
 class LanguageTile extends StatelessWidget {
@@ -17,43 +18,56 @@ class LanguageTile extends StatelessWidget {
           onTap: () {
             showModalBottomSheet(
               context: context,
+              backgroundColor: Colors.transparent,
+              isScrollControlled: true,
+              showDragHandle: false,
+              enableDrag: false,
               builder: (context) {
-                return Padding(
+                return Container(
+                  margin: const EdgeInsets.all(12),
                   padding: const EdgeInsets.all(12),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        localization.changeLanguage,
-                        style: theme.textTheme.bodyLarge!.copyWith(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      // Row(
-                      //   children: [
-                      //     Expanded(
-                      //       child: Text(
-                      //         localization.changeLanguage,
-                      //         style: theme.textTheme.bodyLarge!.copyWith(
-                      //           fontSize: 16,
-                      //           fontWeight: FontWeight.bold,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     IconButton.filledTonal(
-                      //       padding: EdgeInsets.zero,
-                      //       splashRadius: 12,
-                      //       constraints: const BoxConstraints(
-                      //         minWidth: 24,
-                      //         minHeight: 24,
-                      //       ),
-                      //       onPressed: context.pop,
-                      //       icon: const Icon(CupertinoIcons.multiply, size: 16),
-                      //     ),
-                      //   ],
+                      // const SizedBox(height: 10),
+                      // Text(
+                      //   localization.changeLanguage,
+                      //   style: theme.textTheme.bodyLarge!.copyWith(
+                      //     fontSize: 16,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
                       // ),
+                      // const SizedBox(height: 10),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              localization.changeLanguage,
+                              style: theme.textTheme.bodyLarge!.copyWith(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          IconButton.filledTonal(
+                            padding: EdgeInsets.zero,
+                            splashRadius: 12,
+                            constraints: const BoxConstraints(
+                              minWidth: 24,
+                              minHeight: 24,
+                            ),
+                            onPressed: context.pop,
+                            icon: const Icon(CupertinoIcons.multiply, size: 16),
+                          ),
+                        ],
+                      ),
                       ..._languages.entries.map(
                         (entry) {
                           final languageCode = entry.key;

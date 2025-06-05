@@ -33,5 +33,8 @@
   "sendOtp": "Send OTP",
   "pleaseEnterCorrectEmail": "Please enter correct Email",
   "pleaseEnterAnEmail":"Please enter an Email",
-  "verifyOtp":"Verify OTP"
+  "verifyOtp":"Verify OTP",
+  "createGroup": "Create Group",
+  "joinGroup": "Join Group",
+  "yourGroups": "Your Groups"
 }
