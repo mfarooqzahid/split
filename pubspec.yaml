@@ -71,6 +71,10 @@ dependencies:
   fuzzy: ^0.5.1
   hydrated_bloc: ^9.1.5
   path_provider: ^2.1.5
+  dice_bear: ^0.1.7
+  flutter_svg: ^2.1.0
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
 
 # dart run flutter_native_splash:create
 flutter_native_splash:
@@ -107,6 +111,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.14.3
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.15
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -132,6 +138,7 @@ flutter:
   assets:
     - .env
     - assets/images/
+    - assets/svgs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

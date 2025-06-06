@@ -36,5 +36,10 @@
     "verifyOtp": "Verificar OTP",
     "createGroup": "Crear grupo",
     "joinGroup": "Unirse al grupo",
-    "yourGroups": "Tus grupos"
+    "yourGroups": "Tus grupos",
+    "completeProfile": "Completar Perfil",
+    "generateNewAvatar": "Generar Nuevo Avatar",
+    "saveProfile": "Guardar Perfil",
+    "errorTitle": "¡Ups! Algo salió mal",
+    "errorMessage": "Encontramos un error inesperado. Por favor intenta de nuevo o contacta soporte si el problema persiste."
 }

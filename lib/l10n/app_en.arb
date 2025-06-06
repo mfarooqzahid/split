@@ -36,5 +36,11 @@
   "verifyOtp":"Verify OTP",
   "createGroup": "Create Group",
   "joinGroup": "Join Group",
-  "yourGroups": "Your Groups"
+  "yourGroups": "Your Groups",
+  "completeProfile": "Complete Profile",
+  "generateNewAvatar": "Generate New Avatar",
+  "saveProfile": "Save Profile",
+  "errorTitle": "Oops! Something went wrong",
+  "errorMessage": "We encountered an unexpected error. Please try again or contact support if the problem persists."
+
 }

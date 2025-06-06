@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:split/core/widgets/default_styled_container.dart';
-import 'package:split/features/profile/widgets/language/language_tile.dart';
-import 'package:split/features/profile/widgets/logout/logout_tile.dart';
-import 'package:split/features/profile/widgets/theme/theme_tile.dart';
+import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
+import 'package:split/features/profile/presentation/widgets/language/language_tile.dart';
+import 'package:split/features/profile/presentation/widgets/logout/logout_tile.dart';
+import 'package:split/features/profile/presentation/widgets/theme/theme_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -15,6 +20,13 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    final userId = GetIt.I<SupabaseClient>().auth.currentUser!.id;
+    context.read<ProfileBloc>().add(FetchProfile(userId));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -43,44 +55,54 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         icon: const Icon(CupertinoIcons.arrow_left),
                       ),
                     ),
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Colors.grey.withAlpha(30),
+                    BlocBuilder<ProfileBloc, ProfileState>(
+                      builder: (context, state) {
+                        return ClipOval(
+                          child: ColoredBox(
+                            color: Colors.grey.withAlpha(30),
+                            child: SizedBox.square(
+                              dimension: 100,
+                              child: state is ProfileSuccess
+                                  ? SvgPicture.network(state.profile.profileUrl)
+                                  : null,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     Column(
                       children: [
                         const Divider(),
-
-                        const ListTile(
-                          minVerticalPadding: 0,
-                          title: Text("Farooq Zahid"),
-                          trailing: Icon(CupertinoIcons.pencil),
+                        BlocBuilder<ProfileBloc, ProfileState>(
+                          builder: (context, state) {
+                            final userName = state is ProfileSuccess
+                                ? state.profile.name
+                                : "";
+                            return ListTile(
+                              minVerticalPadding: 0,
+                              title: Text(userName),
+                              trailing: const Icon(CupertinoIcons.pencil),
+                            );
+                          },
                         ),
                         const Divider(),
-
-                        const ListTile(
-                          minVerticalPadding: 0,
-                          title: Text("farooq@gmail.com"),
-                          trailing: Icon(CupertinoIcons.mail),
+                        BlocBuilder<ProfileBloc, ProfileState>(
+                          builder: (context, state) {
+                            final email = state is ProfileSuccess
+                                ? state.profile.email
+                                : "";
+                            return ListTile(
+                              minVerticalPadding: 0,
+                              title: Text(email),
+                              trailing: const Icon(CupertinoIcons.mail),
+                            );
+                          },
                         ),
                         const Divider(),
                         const ThemeTile(),
                         const Divider(),
                         const LanguageTile(),
                         const Divider(),
-                        // ListTile(
-                        //   title: Text(localization.currentRoom),
-                        //   trailing: const Icon(CupertinoIcons.forward),
-                        // ),
-                        // const Divider(),
-                        // ListTile(
-                        //   minVerticalPadding: 0,
-                        //   title: Text(localization.changePassword),
-                        //   trailing: const Icon(
-                        //     CupertinoIcons.lock,
-                        //   ),
-                        // ),
-                        // const Divider(),
                         const LogoutTile(),
                         const Divider(),
                         ListTile(

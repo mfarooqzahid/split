@@ -3,3 +3,4 @@ class AppImages {
 
   static const String logo = "$_basePath/logo.png";
 }
+

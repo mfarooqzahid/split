@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:split/core/widgets/default_styled_container.dart';
-import 'package:split/features/home/widget/drawer.dart';
-import 'package:split/features/home/widget/recent_bill_card.dart';
+import 'package:split/features/home/presentation/widget/drawer.dart';
+import 'package:split/features/home/presentation/widget/recent_bill_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    // //setStatusBarColor(context);
     return Scaffold(
       key: _scaffoldKey,
       drawer: const HomeDrawer(),

@@ -56,7 +56,7 @@ class _VerifyOtpBottomSheetState extends State<VerifyOtpBottomSheet> {
                 padding: const EdgeInsets.all(12),
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: theme.colorScheme.surface,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(

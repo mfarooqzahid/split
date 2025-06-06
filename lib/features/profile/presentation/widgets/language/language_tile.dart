@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:split/features/profile/widgets/language/language_cubit.dart';
+import 'package:split/features/profile/presentation/widgets/language/language_cubit.dart';
 
 class LanguageTile extends StatelessWidget {
   const LanguageTile({super.key});
@@ -28,7 +28,7 @@ class LanguageTile extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: theme.colorScheme.surface,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
