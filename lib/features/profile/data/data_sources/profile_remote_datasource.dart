@@ -58,29 +58,6 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
           .select()
           .single();
 
-      // if (response == null) {
-      //   // Profile doesn't exist, create new one
-      //   Logger.log(
-      //       '[ProfileRemoteDataSource] Profile not found, creating new profile');
-
-      //   final insertData = {
-      //     'id': userId,
-      //     'name': userName,
-      //     'email': email,
-      //     'profileUrl': profileUrl,
-      //     'createdAt': DateTime.now().toIso8601String(),
-      //     'updatedAt': DateTime.now().toIso8601String(),
-      //   };
-
-      //   final insertResponse =
-      //       await client.from('users').insert(insertData).select().single();
-
-      //   final newProfile = UserProfile.fromMap(insertResponse);
-      //   Logger.log(
-      //       '[ProfileRemoteDataSource] New profile created on Supabase: $newProfile');
-      //   return newProfile;
-      // }
-
       final updatedProfile = UserProfile.fromMap(response);
       Logger.log(
           '[ProfileRemoteDataSource] Profile updated on Supabase: $updatedProfile');

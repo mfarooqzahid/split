@@ -27,7 +27,7 @@ class ErrorScreen extends StatelessWidget {
             children: [
               // SVG Illustration
               SvgPicture.asset(
-                AppSvgs.bug_fixing,
+                AppSvgs.bugFixing,
                 height: 200,
                 width: 200,
                 fit: BoxFit.contain,

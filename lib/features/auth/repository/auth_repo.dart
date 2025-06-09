@@ -19,10 +19,10 @@ class AuthRepo {
       return right(null);
     } on AuthException catch (e) {
       Logger.log('[AuthRepo] AuthException while sending OTP: ${e.message}');
-      return left(AuthFailure(e.message));
+      return left(Failure(message: e.message));
     } catch (e) {
       Logger.log('[AuthRepo] Unknown error while sending OTP: $e');
-      return left(UnknownFailure('An unexpected error occurred: $e'));
+      return left(const Failure());
     }
   }
 
@@ -42,10 +42,10 @@ class AuthRepo {
       return right(response);
     } on AuthException catch (e) {
       Logger.log('[AuthRepo] AuthException while verifying OTP: ${e.message}');
-      return left(AuthFailure(e.message));
+      return left(Failure(message: e.message));
     } catch (e) {
       Logger.log('[AuthRepo] Unknown error while verifying OTP: $e');
-      return left(UnknownFailure('An unexpected error occurred: $e'));
+      return left(const Failure());
     }
   }
 }

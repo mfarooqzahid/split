@@ -31,3 +31,5 @@ final class UpdateProfile extends ProfileEvent {
   @override
   List<Object> get props => [userId, userName, email, profileUrl];
 }
+
+// final class  ClearProfileCache extends ProfileEvent{}

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:split/core/error/failure.dart';
 import 'package:split/core/utils/logger.dart';
 import 'package:split/features/profile/data/data_sources/profile_local_datasource.dart';
@@ -15,7 +16,7 @@ abstract class ProfileRepository {
     required String profileUrl,
   });
 
-  Future<void> clearLocalProfile();
+  Future<Either<Failure, void>> clearLocalProfile();
 }
 
 class ProfileRepositoryImpl implements ProfileRepository {
@@ -46,11 +47,10 @@ class ProfileRepositoryImpl implements ProfileRepository {
 
       return right(updatedRemoteProfile);
     } on PostgrestException catch (e) {
-      return left(ServerFailure(e.message));
+      return left(Failure(message: e.message));
     } catch (e) {
       Logger.log("[Profile Respository]: updateUserProfile -> ${e.toString()}");
-      return left(const UnknownFailure(
-          "An unexpected error has occurred updating profile."));
+      return left(const Failure(message: "Could not update profile, an unknown error has occured"));
     }
   }
 
@@ -72,16 +72,20 @@ class ProfileRepositoryImpl implements ProfileRepository {
 
       return right(null);
     } on PostgrestException catch (e) {
-      return left(ServerFailure(e.message));
+      return left(Failure(message: e.message));
     } catch (e) {
       Logger.log("[Profile Respository]: getUserProfile -> ${e.toString()}");
-      return left(const UnknownFailure(
-          "An unexpected error has occurred getting profile."));
+      return left(const Failure(message: "Could not update profile, an unknown error has occured"));
     }
   }
 
   @override
-  Future<void> clearLocalProfile() async {
-    // TODO: implemet feature
+  Future<Either<Failure, void>> clearLocalProfile() async {
+    try {
+      await localDataSource.clearCachedProfile();
+      return right(null);
+    } on HiveError catch (e) {
+      return left(Failure (message: e.message));
+    }
   }
 }

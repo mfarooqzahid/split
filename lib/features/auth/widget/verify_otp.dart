@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
@@ -95,23 +96,28 @@ class _VerifyOtpBottomSheetState extends State<VerifyOtpBottomSheet> {
                         enabled: state is! AuthLoading,
                         controller: otpController,
                         autofocus: true,
+                        textInputAction: TextInputAction.done,
+                        keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
                           hintText: "_ _ _ _ _ _",
                         ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
                       ),
                     ),
-                    const Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SizedBox(height: 16),
-                        // Text(
-                        //   // TODO: Handle error messsage
-                        //   "Error: ",
-                        //   style: TextStyle(color: Colors.red),
-                        // ),
-                      ],
-                    ),
+                    // const Column(
+                    //   mainAxisSize: MainAxisSize.min,
+                    //   children: [
+                    //     SizedBox(height: 16),
+                    //     // Text(
+                    //     //   //  Handle error messsage
+                    //     //   "Error: ",
+                    //     //   style: TextStyle(color: Colors.red),
+                    //     // ),
+                    //   ],
+                    // ),
                     const SizedBox(height: 16),
                     FilledButton(
                       style: FilledButton.styleFrom(

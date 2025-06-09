@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:dice_bear/dice_bear.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:split/core/utils/logger.dart';
 import 'package:split/core/widgets/default_styled_container.dart';
@@ -22,6 +23,7 @@ class CompleteProfileScreen extends StatefulWidget {
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   late Avatar avatar;
   late TextEditingController userNameController;
+  late bool isEditing;
 
   void _generateNewAvatar() {
     final random = Random();
@@ -38,9 +40,13 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
 
   @override
   void initState() {
+    isEditing = widget.isEditing;
     final String email = widget.user.email!;
     userNameController = TextEditingController(text: email.split("@")[0]);
-    _generateNewAvatar();
+
+    if (isEditing) {
+      _generateNewAvatar();
+    }
     super.initState();
   }
 
@@ -55,6 +61,10 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         }
       },
       builder: (context, state) {
+        if (isEditing && state is ProfileSuccess) {
+          userNameController.text = state.profile.name;
+        }
+
         return GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -75,7 +85,11 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                       color: Colors.grey.withAlpha(30),
                       child: SizedBox.square(
                         dimension: 100,
-                        child: avatar.toImage(),
+                        child: isEditing
+                            ? state is ProfileSuccess
+                                ? SvgPicture.network(state.profile.profileUrl)
+                                : null
+                            : avatar.toImage(),
                       ),
                     ),
                   ),
@@ -87,8 +101,14 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     style: FilledButton.styleFrom(
                       fixedSize: const Size(double.maxFinite, 50),
                     ),
-                    onPressed:
-                        state is ProfileLoading ? null : _generateNewAvatar,
+                    onPressed: state is ProfileLoading
+                        ? null
+                        : () {
+                            setState(() {
+                              isEditing = false; // local variable
+                              _generateNewAvatar();
+                            });
+                          },
                     child: Text(localization.generateNewAvatar),
                   ),
                   FilledButton(
@@ -103,7 +123,11 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                     userId: widget.user.id,
                                     email: widget.user.email!,
                                     userName: userNameController.text.trim(),
-                                    profileUrl: avatar.svgUri.toString(),
+                                    profileUrl: isEditing
+                                        ? (state as ProfileSuccess)
+                                            .profile
+                                            .profileUrl
+                                        : avatar.svgUri.toString(),
                                   ));
                             }
                           },

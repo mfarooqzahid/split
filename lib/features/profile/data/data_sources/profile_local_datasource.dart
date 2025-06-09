@@ -60,7 +60,6 @@ class ProfileLocalDataSourceImpl implements ProfileLocalDataSource {
       }
     } catch (e) {
       Logger.log('[ProfileLocalDataSource] Error clearing cached profile: $e');
-      // Consider throwing a CacheException here
       rethrow;
     }
   }

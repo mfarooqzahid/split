@@ -80,6 +80,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 : "";
                             return ListTile(
                               minVerticalPadding: 0,
+                              onTap: () {
+                                context.goNamed('edit-profile');
+                              },
                               title: Text(userName),
                               trailing: const Icon(CupertinoIcons.pencil),
                             );

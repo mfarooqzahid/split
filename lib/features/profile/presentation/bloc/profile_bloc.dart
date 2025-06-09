@@ -11,6 +11,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({required this.profileRepository}) : super(ProfileInitial()) {
     on<FetchProfile>(_onFetchProfile);
     on<UpdateProfile>(_onUpdateProfile);
+    // on<ClearProfileCache>(_onClearProfileCache);
   }
   Future<void> _onFetchProfile(FetchProfile event, Emitter emit) async {
     emit(ProfileLoading());
@@ -51,5 +52,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     );
   }
 
-  
+  // Future<void> _onClearProfileCache(
+  //     ClearProfileCache event, Emitter emit) async {
+  //   emit(ProfileLoading());
+  //   final result = await profileRepository.clearLocalProfile();
+  //   result.fold(
+  //     (failure) => emit(ProfileFailure(failure.message)),
+  //     (success) => emit(ProfileCachedCleared()),
+  //   );
+  // }
 }

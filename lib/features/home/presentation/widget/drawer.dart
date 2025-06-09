@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomeDrawer extends StatefulWidget {
   const HomeDrawer({super.key});
@@ -11,6 +16,14 @@ class HomeDrawer extends StatefulWidget {
 }
 
 class _HomeDrawerState extends State<HomeDrawer> {
+
+  @override
+  void initState() {
+    final userId = GetIt.I<SupabaseClient>().auth.currentUser!.id;
+    context.read<ProfileBloc>().add(FetchProfile(userId));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
@@ -33,26 +46,35 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   // TODO: handle join group functionality
                 },
                 title: Text(localization.joinGroup),
-              leading: Icon(CupertinoIcons.person_2),
+                leading: const Icon(CupertinoIcons.person_2),
               ),
 
               // TODO: Display the user's groups
               const Spacer(),
               // GO to [ProfileScreen]
-              ListTile(
-                onTap: () {
-                  Navigator.pop(context);
-                  context.goNamed('profile');
+              BlocBuilder<ProfileBloc, ProfileState>(
+                builder: (context, state) {
+                  return ListTile(
+                    onTap: () {
+                      Navigator.pop(context);
+                      context.goNamed('profile');
+                    },
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.grey.withAlpha(30),
+                      child: state is ProfileSuccess
+                          ? SvgPicture.network(state.profile.profileUrl)
+                          : null,
+                    ),
+                    title: Text(
+                      state is ProfileSuccess ? state.profile.name : "",
+                      style: theme.textTheme.bodyLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    trailing: const Icon(CupertinoIcons.forward),
+                  );
                 },
-                leading: const CircleAvatar(),
-                title: Text(
-                  "Farooq Zahid",
-                  style: theme.textTheme.bodyLarge!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                trailing: const Icon(CupertinoIcons.forward),
               )
             ],
           ),

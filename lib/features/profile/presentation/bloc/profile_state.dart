@@ -35,3 +35,5 @@ final class ProfileFailure extends ProfileState {
   @override
   List<Object?> get props => [error];
 }
+
+// final class ProfileCachedCleared extends ProfileState {}
