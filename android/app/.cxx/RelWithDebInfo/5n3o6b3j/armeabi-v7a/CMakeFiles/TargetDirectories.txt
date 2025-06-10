@@ -1,0 +1,2 @@
+/home/farooq/development/split/android/app/.cxx/RelWithDebInfo/5n3o6b3j/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/farooq/development/split/android/app/.cxx/RelWithDebInfo/5n3o6b3j/armeabi-v7a/CMakeFiles/rebuild_cache.dir
