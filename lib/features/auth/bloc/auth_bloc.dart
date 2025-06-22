@@ -15,7 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<VerifyOTPEvent>(_onVerifyOTPEvent);
   }
 
-  _onSigninEvent(SigninEvent event, Emitter emit) async {
+  Future<void> _onSigninEvent(SigninEvent event, Emitter emit) async {
     emit(AuthLoading());
     final result = await authRepo.signInWithEmailOtp(email: event.email);
 
@@ -25,7 +25,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  _onVerifyOTPEvent(VerifyOTPEvent event, Emitter emit) async {
+  Future<void> _onVerifyOTPEvent(VerifyOTPEvent event, Emitter emit) async {
     emit(AuthLoading());
     final result = await authRepo.verifyOTP(
       email: event.email,

@@ -53,8 +53,7 @@ final GoRouter goRouter = GoRouter(
             context.goNamed('complete-profile');
           }
           if (state is ProfileSuccess) {
-            GetIt.instance
-                .registerSingleton(state.profile, instanceName: 'profile');
+            Logger.log("Profile fetched successfully");
           }
         },
         builder: (context, state) => state is ProfileSuccess

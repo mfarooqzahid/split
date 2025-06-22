@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:split/core/utils/logger.dart';
 import 'package:split/core/widgets/app_bar_widget.dart';
 import '../models/bill_details_model.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 
 class ConfirmBillScreen extends StatefulWidget {
   final BillDetailsModel billDetails;
@@ -55,7 +55,6 @@ class _ConfirmBillScreenState extends State<ConfirmBillScreen> {
     return Scaffold(
       appBar: AppBarWidget(
         title: localization.billSummary,
-        
         actions: [
           IconButton.filled(
             onPressed: () {

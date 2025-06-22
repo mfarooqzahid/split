@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -15,7 +16,7 @@ import 'package:split/features/profile/presentation/widgets/theme/theme_cubit.da
 import 'package:split/injection.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:split/routes/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -23,8 +24,8 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationDocumentsDirectory(),
-  );
+      storageDirectory: HydratedStorageDirectory(
+          (await getApplicationDocumentsDirectory()).path));
 
   Hive.initFlutter();
   Hive.registerAdapter(UserProfileAdapter());
@@ -37,7 +38,6 @@ void main() async {
   );
 
   await registerDependencies(supabaseClient: supabase.client);
-
   runApp(const SplitApp());
 
   FlutterNativeSplash.remove();
@@ -58,7 +58,7 @@ class SplitApp extends StatelessWidget {
         builder: (context, themeMode) {
           return BlocBuilder<LanguageCubit, Locale>(
             builder: (context, locale) {
-              setStatusBarColor(context, themeMode);
+              setStatusBarColor(themeMode);
 
               return MaterialApp.router(
                 debugShowCheckedModeBanner: false,

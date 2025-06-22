@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -16,7 +16,6 @@ class HomeDrawer extends StatefulWidget {
 }
 
 class _HomeDrawerState extends State<HomeDrawer> {
-
   @override
   void initState() {
     final userId = GetIt.I<SupabaseClient>().auth.currentUser!.id;

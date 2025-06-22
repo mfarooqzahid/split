@@ -9,9 +9,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 final getIt = GetIt.instance;
 
-Future<void> registerDependencies({required SupabaseClient supabaseClient}) async {
+Future<void> registerDependencies(
+    {required SupabaseClient supabaseClient}) async {
   getIt
-
     // Register supabase client
     ..registerLazySingleton(() => supabaseClient)
 
@@ -22,15 +22,8 @@ Future<void> registerDependencies({required SupabaseClient supabaseClient}) asyn
     // Profile's dependencies
     ..registerLazySingleton(
         () => ProfileRemoteDataSourceImpl(client: GetIt.I<SupabaseClient>()))
-    ..registerSingletonAsync<ProfileLocalDataSourceImpl>(
-      () async {
-        final localDataSource = ProfileLocalDataSourceImpl();
-        await localDataSource.init(); // Await the initialization
-        return localDataSource;
-      },
-    );
-  await GetIt.I.allReady();
-  getIt
+    ..registerLazySingleton<ProfileLocalDataSourceImpl>(
+        () => ProfileLocalDataSourceImpl())
     ..registerLazySingleton(() => ProfileRepositoryImpl(
           localDataSource: GetIt.I<ProfileLocalDataSourceImpl>(),
           remoteDataSource: GetIt.I<ProfileRemoteDataSourceImpl>(),

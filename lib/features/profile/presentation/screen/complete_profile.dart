@@ -9,7 +9,7 @@ import 'package:split/core/utils/logger.dart';
 import 'package:split/core/widgets/default_styled_container.dart';
 import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   final bool isEditing;
@@ -21,7 +21,7 @@ class CompleteProfileScreen extends StatefulWidget {
 }
 
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
-  late Avatar avatar;
+  Avatar? avatar;
   late TextEditingController userNameController;
   late bool isEditing;
 
@@ -34,7 +34,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             Color(_backgroundColors[random.nextInt(_backgroundColors.length)]),
         sprite: DiceBearSprite.avataaars,
       ).build();
-      Logger.log('Generated avatar: ${avatar.svgUri.toString()}');
+      Logger.log('Generated avatar: ${avatar!.svgUri.toString()}');
     });
   }
 
@@ -44,7 +44,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     final String email = widget.user.email!;
     userNameController = TextEditingController(text: email.split("@")[0]);
 
-    if (isEditing) {
+    if (!isEditing) {
       _generateNewAvatar();
     }
     super.initState();
@@ -89,7 +89,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                             ? state is ProfileSuccess
                                 ? SvgPicture.network(state.profile.profileUrl)
                                 : null
-                            : avatar.toImage(),
+                            : avatar?.toImage(),
                       ),
                     ),
                   ),
@@ -127,7 +127,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                         ? (state as ProfileSuccess)
                                             .profile
                                             .profileUrl
-                                        : avatar.svgUri.toString(),
+                                        : avatar!.svgUri.toString(),
                                   ));
                             }
                           },

@@ -8,7 +8,7 @@ import 'package:split/core/utils/flutter_toast.dart';
 import 'package:split/core/utils/validators.dart';
 import 'package:split/features/auth/bloc/auth_bloc.dart';
 import 'package:split/features/auth/widget/verify_otp.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 
 class SigninScreen extends StatefulWidget {
   const SigninScreen({super.key});

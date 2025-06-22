@@ -9,7 +9,7 @@ import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:split/features/profile/presentation/widgets/language/language_tile.dart';
 import 'package:split/features/profile/presentation/widgets/logout/logout_tile.dart';
 import 'package:split/features/profile/presentation/widgets/theme/theme_tile.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProfileScreen extends StatefulWidget {

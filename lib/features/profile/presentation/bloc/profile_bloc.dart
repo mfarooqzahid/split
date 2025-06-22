@@ -11,7 +11,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({required this.profileRepository}) : super(ProfileInitial()) {
     on<FetchProfile>(_onFetchProfile);
     on<UpdateProfile>(_onUpdateProfile);
-    // on<ClearProfileCache>(_onClearProfileCache);
   }
   Future<void> _onFetchProfile(FetchProfile event, Emitter emit) async {
     emit(ProfileLoading());

@@ -43,6 +43,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
         profileUrl: profileUrl,
       );
 
+      await localDataSource.init();
       await localDataSource.cacheProfile(updatedRemoteProfile);
 
       return right(updatedRemoteProfile);
@@ -50,13 +51,15 @@ class ProfileRepositoryImpl implements ProfileRepository {
       return left(Failure(message: e.message));
     } catch (e) {
       Logger.log("[Profile Respository]: updateUserProfile -> ${e.toString()}");
-      return left(const Failure(message: "Could not update profile, an unknown error has occured"));
+      return left(const Failure(
+          message: "Could not update profile, an unknown error has occured"));
     }
   }
 
   @override
   Future<Either<Failure, UserProfile?>> getUserProfile(String userId) async {
     try {
+      await localDataSource.init();
       final UserProfile? localProfile = localDataSource.getCachedProfile();
 
       if (localProfile != null) {
@@ -75,17 +78,19 @@ class ProfileRepositoryImpl implements ProfileRepository {
       return left(Failure(message: e.message));
     } catch (e) {
       Logger.log("[Profile Respository]: getUserProfile -> ${e.toString()}");
-      return left(const Failure(message: "Could not update profile, an unknown error has occured"));
+      return left(const Failure(
+          message: "Could not update profile, an unknown error has occured"));
     }
   }
 
   @override
   Future<Either<Failure, void>> clearLocalProfile() async {
     try {
+      await localDataSource.init();
       await localDataSource.clearCachedProfile();
       return right(null);
     } on HiveError catch (e) {
-      return left(Failure (message: e.message));
+      return left(Failure(message: e.message));
     }
   }
 }

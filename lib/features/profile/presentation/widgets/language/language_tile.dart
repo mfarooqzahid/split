@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:split/features/profile/presentation/widgets/language/language_cubit.dart';
 
@@ -35,16 +35,6 @@ class LanguageTile extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // const SizedBox(height: 10),
-                      // Text(
-                      //   localization.changeLanguage,
-                      //   style: theme.textTheme.bodyLarge!.copyWith(
-                      //     fontSize: 16,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      // ),
-                      // const SizedBox(height: 10),
-
                       Row(
                         children: [
                           Expanded(
