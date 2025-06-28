@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:split/core/assets/svgs.dart';
+import 'package:split/core/assets/images.dart';
 import '/l10n/app_localizations.dart';
 
 class ErrorScreen extends StatelessWidget {
@@ -26,8 +25,8 @@ class ErrorScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // SVG Illustration
-              SvgPicture.asset(
-                AppSvgs.bugFixing,
+              Image.asset(
+                AppImages.bugFixing,
                 height: 200,
                 width: 200,
                 fit: BoxFit.contain,

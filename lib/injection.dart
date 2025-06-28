@@ -1,33 +1,20 @@
 import 'package:get_it/get_it.dart';
-import 'package:split/features/auth/bloc/auth_bloc.dart';
-import 'package:split/features/auth/repository/auth_repo.dart';
-import 'package:split/features/profile/data/data_sources/profile_local_datasource.dart';
-import 'package:split/features/profile/data/data_sources/profile_remote_datasource.dart';
-import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
-import 'package:split/features/profile/data/repository/profile_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:split/features/features.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> registerDependencies(
     {required SupabaseClient supabaseClient}) async {
-  getIt
-    // Register supabase client
-    ..registerLazySingleton(() => supabaseClient)
+  // Register supabase client
+  getIt.registerLazySingleton(() => supabaseClient);
 
-    // Auth Dependenciees
-    ..registerLazySingleton(() => AuthRepo(supabase: GetIt.I<SupabaseClient>()))
-    ..registerFactory(() => AuthBloc(authRepo: GetIt.I<AuthRepo>()))
+  // Auth Dependenciees
+  authDI();
 
-    // Profile's dependencies
-    ..registerLazySingleton(
-        () => ProfileRemoteDataSourceImpl(client: GetIt.I<SupabaseClient>()))
-    ..registerLazySingleton<ProfileLocalDataSourceImpl>(
-        () => ProfileLocalDataSourceImpl())
-    ..registerLazySingleton(() => ProfileRepositoryImpl(
-          localDataSource: GetIt.I<ProfileLocalDataSourceImpl>(),
-          remoteDataSource: GetIt.I<ProfileRemoteDataSourceImpl>(),
-        ))
-    ..registerFactory(
-        () => ProfileBloc(profileRepository: GetIt.I<ProfileRepositoryImpl>()));
+  // Profile's dependencies
+  profileDI();
+
+  // groups dependencies
+  groupDI();
 }

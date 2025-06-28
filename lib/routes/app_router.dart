@@ -3,18 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_transitions/go_transitions.dart';
-import 'package:split/core/utils/error_screen.dart';
-import 'package:split/core/utils/loading_indicator.dart';
-import 'package:split/core/utils/logger.dart';
-import 'package:split/features/auth/screen/signin.dart';
+import 'package:split/core/core.dart';
+import 'package:split/features/features.dart';
 import 'package:split/features/home/presentation/screen/home.dart';
 import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:split/features/profile/presentation/screen/complete_profile.dart';
 import 'package:split/features/profile/presentation/screen/profile.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '/features/bill_details/models/bill_details_model.dart';
-import '/features/bill_details/screen/bill_details.dart';
-import '/features/bill_details/screen/confirm_bill.dart';
 import '../features/home/presentation/widget/amountkeypad.dart';
 
 final GoRouter goRouter = GoRouter(
@@ -81,6 +76,7 @@ final GoRouter goRouter = GoRouter(
                   user: GetIt.I<SupabaseClient>().auth.currentUser!,
                   isEditing: true,
                 ),
+                pageBuilder: GoTransitions.cupertino.call,
               ),
             ]),
         GoRoute(

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:split/core/utils/logger.dart';
-import 'package:split/core/widgets/app_bar_widget.dart';
 import '../models/bill_details_model.dart';
 import '/l10n/app_localizations.dart';
 
@@ -53,8 +52,8 @@ class _ConfirmBillScreenState extends State<ConfirmBillScreen> {
     final localization = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBarWidget(
-        title: localization.billSummary,
+      appBar: AppBar(
+        title: Text(localization.billSummary),
         actions: [
           IconButton.filled(
             onPressed: () {

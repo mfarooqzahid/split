@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '/l10n/app_localizations.dart';
 import 'package:split/core/utils/emoji_matcher.dart';
-import 'package:split/core/widgets/app_bar_widget.dart';
 import 'package:split/core/widgets/default_styled_container.dart';
 import 'package:split/features/bill_details/models/bill_details_model.dart';
 import 'package:split/features/bill_details/widget/whos_joining_widget.dart';
@@ -42,8 +41,16 @@ class _BillDetailsScreenState extends State<BillDetailsScreen> {
     final theme = Theme.of(context);
     final localization = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBarWidget(
-        title: localization.billDetails,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          localization.billDetails,
+          textAlign: TextAlign.center,
+          style: theme.textTheme.bodyLarge!.copyWith(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
         actions: [
           IconButton.filled(
             onPressed: () {},
@@ -58,7 +65,7 @@ class _BillDetailsScreenState extends State<BillDetailsScreen> {
         },
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4.0),
             child: Column(
               spacing: 8,
               children: [

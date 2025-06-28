@@ -24,6 +24,15 @@ class AppTheme {
         foregroundColor: kDarkTextColor,
       ),
     ),
+
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: kDarkTextColor,
+      ),
+    ),
     textTheme: const TextTheme(
       bodyLarge: TextStyle(color: kDarkTextColor), // Main dark text
       bodyMedium: TextStyle(color: kSecondaryTextColor), // Secondary/grey text
@@ -111,6 +120,13 @@ class AppTheme {
       style: IconButton.styleFrom(
         backgroundColor: kDarkTextColor,
         foregroundColor: kWhiteColor,
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
       ),
     ),
     textTheme: const TextTheme(

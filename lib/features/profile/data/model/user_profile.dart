@@ -32,9 +32,9 @@ class UserProfile {
       'id': id,
       'email': email,
       'name': name,
-      'profileUrl': profileUrl,
-      'createAt': createAt.millisecondsSinceEpoch,
-      'updatedAt': updatedAt.millisecondsSinceEpoch,
+      'profile_url': profileUrl,
+      'create_at': createAt.millisecondsSinceEpoch,
+      'updated_at': updatedAt.millisecondsSinceEpoch,
     };
   }
 
@@ -43,34 +43,13 @@ class UserProfile {
       id: map['id'] as String,
       email: map['email'] as String,
       name: map['name'] as String,
-      profileUrl: map['profileUrl'] as String,
-      createAt: DateTime.parse(map['createdAt']),
-      updatedAt: DateTime.parse(map['updatedAt']),
+      profileUrl: map['profile_url'] as String,
+      createAt: DateTime.parse(map['created_at']),
+      updatedAt: DateTime.parse(map['updated_at']),
     );
   }
 
-  @override
-  bool operator ==(covariant UserProfile other) {
-    if (identical(this, other)) return true;
-
-    return other.id == id &&
-        other.email == email &&
-        other.name == name &&
-        other.profileUrl == profileUrl &&
-        other.createAt == createAt &&
-        other.updatedAt == updatedAt;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        email.hashCode ^
-        name.hashCode ^
-        profileUrl.hashCode ^
-        createAt.hashCode ^
-        updatedAt.hashCode;
-  }
-
+  
   @override
   String toString() {
     return 'UserProfile(id: $id, email: $email, name: $name, profileUrl: $profileUrl, createAt: $createAt, updatedAt: $updatedAt)';

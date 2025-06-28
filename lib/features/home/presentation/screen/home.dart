@@ -25,31 +25,51 @@ class _HomeScreenState extends State<HomeScreen> {
       key: _scaffoldKey,
       drawer: const HomeDrawer(),
       // appbar
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(56.0),
-        child: SafeArea(
-          top: true,
-          child: Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  // open drawer
-                  _scaffoldKey.currentState?.openDrawer();
-                },
-                icon: const Icon(CupertinoIcons.line_horizontal_3),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(CupertinoIcons.search),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(CupertinoIcons.bell),
-              ),
-            ],
-          ),
+      // appBar: PreferredSize(
+      //   preferredSize: const Size.fromHeight(56.0),
+      //   child: SafeArea(
+      //     top: true,
+      //     child: Row(
+      //       children: [
+      //         IconButton(
+      //           onPressed: () {
+      //             // open drawer
+      //             _scaffoldKey.currentState?.openDrawer();
+      //           },
+      //           icon: const Icon(CupertinoIcons.line_horizontal_3),
+      //         ),
+      //         const Spacer(),
+      //         IconButton(
+      //           onPressed: () {},
+      //           icon: const Icon(CupertinoIcons.search),
+      //         ),
+      //         IconButton(
+      //           onPressed: () {},
+      //           icon: const Icon(CupertinoIcons.bell),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            // open drawer
+            _scaffoldKey.currentState?.openDrawer();
+          },
+          icon: const Icon(CupertinoIcons.line_horizontal_3),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(CupertinoIcons.search),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(CupertinoIcons.bell),
+          ),
+        ],
       ),
       body: SafeArea(
         child: NotificationListener(

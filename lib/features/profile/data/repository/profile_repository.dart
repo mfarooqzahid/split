@@ -1,10 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:split/core/error/failure.dart';
-import 'package:split/core/utils/logger.dart';
-import 'package:split/features/profile/data/data_sources/profile_local_datasource.dart';
-import 'package:split/features/profile/data/data_sources/profile_remote_datasource.dart';
-import 'package:split/features/profile/data/model/user_profile.dart';
+import 'package:split/core/core.dart';
+import 'package:split/features/profile//profile.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class ProfileRepository {

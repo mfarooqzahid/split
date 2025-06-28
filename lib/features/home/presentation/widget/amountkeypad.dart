@@ -41,6 +41,7 @@ class _AmountkeypadState extends State<Amountkeypad> {
     final theme = Theme.of(context);
     final localization = AppLocalizations.of(context)!;
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: theme.colorScheme.primary,
         appBar: AppBar(
           centerTitle: true,
@@ -57,7 +58,7 @@ class _AmountkeypadState extends State<Amountkeypad> {
             onPressed: () {
               context.pop();
             },
-            icon: const Icon(CupertinoIcons.back),
+            icon: const Icon(CupertinoIcons.arrow_left),
           ),
           title: Text(
             localization.amount,

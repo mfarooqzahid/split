@@ -1,65 +1,66 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class BottomSheetPopup extends StatefulWidget {
-  final VoidCallback onClosed;
+class BottomSheetWidget extends StatelessWidget {
+  final VoidCallbackAction? onClose;
   final String title;
   final Widget child;
-  const BottomSheetPopup({
+  const BottomSheetWidget({
     super.key,
-    required this.onClosed,
+    this.onClose,
     required this.title,
     required this.child,
   });
 
   @override
-  State<BottomSheetPopup> createState() => _BottomSheetPopupState();
-}
-
-class _BottomSheetPopupState extends State<BottomSheetPopup> {
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return AnimatedPadding(
-      padding: EdgeInsets.only(bottom: MediaQuery.paddingOf(context).bottom),
       duration: Durations.short4,
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.viewInsetsOf(context).bottom,
+      ),
       child: Container(
-        padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
+        clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          spacing: 6,
           children: [
             Row(
               children: [
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    widget.title,
+                    title,
                     style: theme.textTheme.bodyLarge!.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                IconButton.filledTonal(
+                IconButton(
                   padding: EdgeInsets.zero,
                   splashRadius: 12,
                   constraints: const BoxConstraints(
                     minWidth: 24,
                     minHeight: 24,
                   ),
-                  onPressed: widget.onClosed,
-                  icon: const Icon(CupertinoIcons.multiply, size: 16),
+                  onPressed: () => onClose ?? context.pop(),
+                  icon: const Icon(Icons.close, size: 16),
                 ),
               ],
             ),
-            // add the child from parameter
-            widget.child
+            const SizedBox(height: 10),
+
+            // child at the end
+            child,
+
+            const SizedBox(height: 10),
           ],
         ),
       ),

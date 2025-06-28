@@ -1,9 +1,11 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:split/core/widgets/bottom_sheet_widget.dart';
+import 'package:split/features/groups/presentation/widgets/create_group.dart';
 import '/l10n/app_localizations.dart';
 import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -35,7 +37,25 @@ class _HomeDrawerState extends State<HomeDrawer> {
             children: [
               ListTile(
                 onTap: () {
-                  // TODO: handle create group functionality
+                  context.pop();
+
+                  showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    showDragHandle: false,
+                    enableDrag: false,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.vertical(
+                        top: Radius.circular(12),
+                      ),
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    context: context,
+                    builder: (context) => BottomSheetWidget(
+                      title: "Create Group",
+                      child: CreateGroupBottomSheet(),
+                    ),
+                  );
                 },
                 title: Text(localization.createGroup),
                 leading: const Icon(CupertinoIcons.plus),

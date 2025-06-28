@@ -1,12 +1,11 @@
 import 'dart:math';
 
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dice_bear/dice_bear.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:split/core/utils/logger.dart';
-import 'package:split/core/widgets/default_styled_container.dart';
 import 'package:split/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '/l10n/app_localizations.dart';
@@ -74,8 +73,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               centerTitle: true,
               title: Text(localization.completeProfile),
             ),
-            body: DefaultStyledContainer(
-              margin: const EdgeInsets.all(8),
+            body: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 spacing: 20,
